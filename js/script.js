@@ -81,23 +81,30 @@ createApp({
             this.currentIndex = index;
         },
         autoplay() {
+             this.intervalID = setInterval(() => {
+                 console.log('sono passati tre secondi');
+                 this.nextSlide();
+              }, 3000);
+
             // Se c'è già una funzione la cancello
-            if (this.intervalID === null) {
-                 this.intervalID = setInterval(() => {
-                console.log('sono passati tre secondi');
-                this.nextSlide();
-            }, 3000);
-            } else{
-                  clearInterval(this.setIntervalID)
-            }
-          
+            // if (this.intervalID === null) {
+            //     this.intervalID = setInterval(() => {
+            //         console.log('sono passati tre secondi');
+            //         this.nextSlide();
+            //     }, 3000);
+            // } else {
+            //     clearInterval(this.setIntervalID)
+            // }
+
             // Faccio partire una timing function ogni 3 sec
-           
-            
+
+
         },
         autoplayStop() {
             console.log('fermati')
+
             clearInterval(this.setIntervalID)
+            this.intervalID = null
         }
     },
     mounted() {
