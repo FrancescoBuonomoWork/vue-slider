@@ -57,7 +57,7 @@ createApp({
     },
     methods: {
         nextSlide() {
-            console.log('next slide');
+            //console.log('next slide');
             
             if (this.currentIndex === this.slides.length - 1) {
                  this.currentIndex = 0;
@@ -66,13 +66,17 @@ createApp({
             }
         },
         prevSlide() {
-            console.log('prev sld');
+           // console.log('prev sld');
             if (this.currentIndex === 0) {
                 this.currentIndex = this.slides.length - 1;
            } else {
                this.currentIndex--;
            }
 
+        },
+        changeSlide(index) {
+            console.log('ho cliccato sulla thumb '+ index);
+            this.currentIndex = index;
         }
 
     },
