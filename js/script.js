@@ -29,7 +29,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            currentIndex : 0,
+            currentIndex: 0,
             slides: [
                 {
                     imageSrc: 'img/01.webp',
@@ -54,36 +54,46 @@ createApp({
                 }
             ],
             active: 'Test',
+            intervalID: null,
         }
     },
     methods: {
         nextSlide() {
             //console.log('next slide');
-            
+
             if (this.currentIndex === this.slides.length - 1) {
-                 this.currentIndex = 0;
+                this.currentIndex = 0;
             } else {
                 this.currentIndex++;
             }
         },
         prevSlide() {
-           // console.log('prev sld');
+            // console.log('prev sld');
             if (this.currentIndex === 0) {
                 this.currentIndex = this.slides.length - 1;
-           } else {
-               this.currentIndex--;
-           }
+            } else {
+                this.currentIndex--;
+            }
 
         },
         changeSlide(index) {
-            console.log('ho cliccato sulla thumb '+ index);
+            console.log('ho cliccato sulla thumb ' + index);
             this.currentIndex = index;
         },
         autoplay() {
-           setInterval (() =>{
-           console.log('sono passati tre secondi')
+            // Se c'è già una funzione la cancello
+            if (this.intervalID === null) {
+                 this.intervalID = setInterval(() => {
+                console.log('sono passati tre secondi');
+                this.nextSlide();
+            }, 3000);
+            } else{
+                  clearInterval(this.setIntervalID)
+            }
           
-           },3000)
+            // Faccio partire una timing function ogni 3 sec
+           
+            
         }
     },
     mounted() {
