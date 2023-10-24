@@ -78,8 +78,13 @@ createApp({
         changeSlide(index) {
             console.log('ho cliccato sulla thumb '+ index);
             this.currentIndex = index;
+        },
+        autoplay() {
+           setInterval (() =>{
+           console.log('sono passati tre secondi')
+          
+           },3000)
         }
-
     },
     mounted() {
 
