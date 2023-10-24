@@ -94,6 +94,10 @@ createApp({
             // Faccio partire una timing function ogni 3 sec
            
             
+        },
+        autoplayStop() {
+            console.log('fermati')
+            clearInterval(this.setIntervalID)
         }
     },
     mounted() {
